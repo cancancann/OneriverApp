@@ -1,43 +1,44 @@
 import { useState } from "react";
-import { TextInput, TouchableOpacity } from "react-native";
+import { Image, TextInput, TouchableOpacity } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
-  function handleLogin(email,password){
 
-    if(email === "hikmetcan" && password ==="11223344"){
-      console.log("Giriş bilgileri doğru")
-    }else{
-      console.log("Hatalı giriş")
-      
+  function handleLogin() {
+    if (email === "hikmetcan" && password === "11223344") {
+      //navigate işi
+      console.log(email, password);
+    } else {
+      console.log(email, password);
     }
-
   }
 
   return (
     <View style={styles.container}>
+      <Image
+        style={styles.image}
+        source={require("./assets/oneriever.png")}
+      ></Image>
+      <Text style={styles.imageText}>Welcome to Oneriver</Text>
       <View style={styles.content}>
-        <Text style={styles.text}>E Posta</Text>
+        <Text style={styles.text}>Email</Text>
         <TextInput
           style={styles.input}
-          placeholder="E-Posta"
           onChangeText={(text) => setEmail(text)}
           value={email}
         />
-        <Text style={styles.text}>Şifre</Text>
+        <Text style={styles.text}>Password</Text>
         <TextInput
           style={styles.input}
-          placeholder="Şifre"
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
         />
         <View style={styles.contentButton}>
           <TouchableOpacity onPress={handleLogin} style={styles.button}>
-            <Text style={styles.buttonText}>Giriş Yap</Text>
+            <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -48,35 +49,53 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "darkorange",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
+  image:{
+    marginTop:142,
+    width:150,
+    height:150
+  },
+  imageText:{
+    fontFamily:'Segoe UI',
+    color:"#1A4184",
+    marginTop:20,
+    lineHeight:30,
+    fontSize:20,
+    fontWeight:400
+  },
   content: {
-    backgroundColor: "gray",
     width: "100%",
     padding: 30,
     margin: 20,
   },
-  contentButton:{
+  contentButton: {
     width: "100%",
-    alignItems:"center",
-    marginTop:10
+    alignItems: "center",
+    marginTop: 10,
   },
   input: {
-    backgroundColor: "#f3f3f3",
+    backgroundColor: "#D9D9D9",
     padding: 20,
     borderRadius: 10,
   },
   button: {
-    backgroundColor: "yellow",
-    width: "100%",
+    backgroundColor: "#1A4184",
+    width: "50%",
     alignItems: "center",
-    margin: 20,
+    margin: 31,
     padding: 20,
-    borderRadius: 15,
+    borderRadius: 10,
+  },
+  buttonText:{
+    fontWeight:'600',
+    fontSize:20,
+    lineHeight:25,
+    color:'#fff'
   },
   text: {
-    padding: 20,
+    padding: 10,
   },
 });

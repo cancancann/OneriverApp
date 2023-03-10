@@ -12,6 +12,7 @@ export default function App() {
       console.log("Giriş bilgileri doğru")
     }else{
       console.log("Hatalı giriş")
+      
     }
 
   }

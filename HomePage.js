@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Button } from "./Button";
+import Card from "./Card";
 //Card yapısı gelecek ve sonra data.json dosyasından filtering işlemi yapılacak
 //Şuan yaptığın layout
 
@@ -34,6 +35,8 @@ const HomePage = () => {
         <Button title="Crypto" />
         <Button title="Currency" />
       </View>
+        {/* LAYOUT */}
+        <Card />
       {/* //Footer */}
       <View style={styles.footer}>
         <TouchableOpacity>

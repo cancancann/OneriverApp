@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, Image } from "react-native";
 import axios from "axios";
 import { TouchableOpacity } from "react-native";
+import { useDispatch } from "react-redux";
+import { addCoinList } from "../redux/WalletSlice";
 
 //card yapısını düzenleme işlemi kaldı bi kaç fix düzeltilecek
 
-const Card = () =>{
+const Card = () => {
   const [coins, setCoins] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
@@ -78,6 +81,15 @@ const Card = () =>{
             height: 28,
             justifyContent: "center",
           }}
+          onPress={() => {
+            dispatch(
+              addCoinList({
+                id: item.id,
+                name: item.name,
+                price: item.current_price,
+              })
+            );
+          }}
         >
           <Text
             style={{
@@ -101,6 +113,6 @@ const Card = () =>{
       keyExtractor={(item) => item.id}
     />
   );
-}
+};
 
 export default Card;

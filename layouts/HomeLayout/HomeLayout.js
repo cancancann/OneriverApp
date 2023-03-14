@@ -2,16 +2,15 @@ import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Button from "../../components/Button";
 import { useNavigation } from "@react-navigation/native";
-
 const HomeLayout = ({ children }) => {
   const navigation = useNavigation();
 
-  const handleWallet =()=>{
-    navigation.navigate("Wallet")
-  }
-  const handleGoBackHome = ()=>{
-    navigation.navigate("Home")
-  }
+  const handleWallet = () => {
+    navigation.navigate("Wallet");
+  };
+  const handleGoBackHome = () => {
+    navigation.navigate("Home");
+  };
 
   return (
     <View style={styles.container}>
@@ -30,19 +29,10 @@ const HomeLayout = ({ children }) => {
           ></Image>
         </TouchableOpacity>
       </View>
-      {/* //headerText */}
-      <View style={styles.header}>
-        <Text style={styles.headerText}>
-          <Text style={styles.oneriver}>Oneriver</Text> Trade
-        </Text>
-      </View>
-      {/* //Filtering */}
-      <View style={styles.filter}>
-        <Button title="All" />
-        <Button title="Crypto" />
-        <Button title="Currency" />
-      </View>
+
+      {/* layout */}
       <View>{children}</View>
+
       {/* //Footer */}
       <View style={styles.footer}>
         <TouchableOpacity onPress={handleGoBackHome}>
@@ -71,24 +61,6 @@ const styles = StyleSheet.create({
   button: {
     margin: 27,
     padding: 10,
-  },
-  header: {
-    marginLeft: 27,
-    marginTop: 5,
-  },
-  headerText: {
-    fontWeight: 600,
-    fontSize: 25,
-    color: "#1E1E1E",
-    lineHeight: 40,
-  },
-  oneriver: {
-    color: "#1A4184",
-  },
-  filter: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginBottom: 10,
   },
   footer: {
     position: "absolute",

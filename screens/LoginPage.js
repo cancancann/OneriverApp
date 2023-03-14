@@ -13,6 +13,7 @@ const LoginPage = () => {
         navigation.navigate("Home")
         console.log(email, password);
       } else {
+        alert("Eksik veya Hatalı bilgi tuşladınız.Tekrar Deneyiniz!")
         console.log(email, password);
       }
     }

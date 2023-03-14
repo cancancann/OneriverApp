@@ -1,19 +1,12 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import Card from '../components/Card'
+import HomeLayout from '../layouts/HomeLayout/HomeLayout'
 
 const Wallet = () => {
   return (
-    <View>
-        <View>
-            <Text>
-                My  Wallet
-            </Text>
-        </View>
-        <View>
-            <Card />
-        </View>
-    </View>
+    <HomeLayout>
+      <Text>WalletPage</Text>
+    </HomeLayout>
   )
 }
 

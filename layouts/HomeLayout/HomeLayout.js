@@ -1,8 +1,18 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Button from "../../components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeLayout = ({ children }) => {
+  const navigation = useNavigation();
+
+  const handleWallet =()=>{
+    navigation.navigate("Wallet")
+  }
+  const handleGoBackHome = ()=>{
+    navigation.navigate("Home")
+  }
+
   return (
     <View style={styles.container}>
       {/* navbar */}
@@ -35,10 +45,10 @@ const HomeLayout = ({ children }) => {
       <View>{children}</View>
       {/* //Footer */}
       <View style={styles.footer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleGoBackHome}>
           <Image source={require("../../assets/home.png")}></Image>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleWallet}>
           <Image source={require("../../assets/wallet.png")}></Image>
         </TouchableOpacity>
       </View>
@@ -64,7 +74,7 @@ const styles = StyleSheet.create({
   },
   header: {
     marginLeft: 27,
-    marginTop: 16,
+    marginTop: 5,
   },
   headerText: {
     fontWeight: 600,

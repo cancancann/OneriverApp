@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Image, TextInput, TouchableOpacity } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigation =useNavigation();
   
     function handleLogin() {
       if (email === "hikmetcan" && password === "11223344") {
-        //navigate işi
+        navigation.navigate("Home")
         console.log(email, password);
       } else {
         console.log(email, password);
@@ -87,6 +89,7 @@ const styles = StyleSheet.create({
       margin: 31,
       padding: 20,
       borderRadius: 10,
+      marginBottom:80 //route girince alta kaydı
     },
     buttonText:{
       fontWeight:'600',

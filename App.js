@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { Image, SafeAreaView, TextInput, TouchableOpacity } from "react-native";
+import { Image, SafeAreaView } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
-import LoginPage from "./LoginPage";
-import HomePage from "./HomePage";
-import Card from "./Card";
+import LoginPage from "./screens/LoginPage";
+import HomePage from "./screens/HomePage";
+import Card from "./components/Card";
+import Wallet from "./screens/WalletPage";
+import HomeLayout from "./layouts/HomeLayout/HomeLayout.js";
 
 //LAyout implement edilecek***
 //Navigation İmplement edilecek***
@@ -14,14 +15,17 @@ export default function App() {
   return(
   <SafeAreaView style={styles.container}>
     {/* <LoginPage/> */}
-    <HomePage />
-    {/* <Card></Card> */}
+    {/* <HomePage /> */}
+    {/* <Wallet /> */}
+    <HomeLayout>
+      <Card />
+    </HomeLayout>
   </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container:{
-    flex:1
+    flex:1,
   }
 })

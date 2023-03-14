@@ -19,7 +19,7 @@ const LoginPage = () => {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require("./assets/oneriever.png")}
+          source={require("../assets/oneriever.png")}
         ></Image>
         <Text style={styles.imageText}>Welcome to Oneriver</Text>
         <View style={styles.content}>

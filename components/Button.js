@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export const Button = ({title}) => {
+const Button = ({title}) => {
   return (
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>{title}</Text>
@@ -28,3 +28,5 @@ const styles = StyleSheet.create({
     color:"#1A4184",
   }
 });
+
+export default Button;

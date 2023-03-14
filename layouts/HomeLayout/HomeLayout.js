@@ -1,25 +1,22 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Button } from "./Button";
-import Card from "./Card";
-//Card yapısı gelecek ve sonra data.json dosyasından filtering işlemi yapılacak
-//Şuan yaptığın layout
+import Button from "../../components/Button";
 
-const HomePage = () => {
+const HomeLayout = ({ children }) => {
   return (
     <View style={styles.container}>
-      {/* //navbar */}
+      {/* navbar */}
       <View style={styles.navbar}>
         <TouchableOpacity style={styles.button}>
           <Image
             style={styles.image}
-            source={require("./assets/menu.png")}
+            source={require("../../assets/menu.png")}
           ></Image>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
           <Image
             style={styles.image}
-            source={require("./assets/search.png")}
+            source={require("../../assets/search.png")}
           ></Image>
         </TouchableOpacity>
       </View>
@@ -35,15 +32,14 @@ const HomePage = () => {
         <Button title="Crypto" />
         <Button title="Currency" />
       </View>
-        {/* LAYOUT */}
-        <Card />
+      <View>{children}</View>
       {/* //Footer */}
       <View style={styles.footer}>
         <TouchableOpacity>
-          <Image source={require("./assets/home.png")}></Image>
+          <Image source={require("../../assets/home.png")}></Image>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Image source={require("./assets/wallet.png")}></Image>
+          <Image source={require("../../assets/wallet.png")}></Image>
         </TouchableOpacity>
       </View>
     </View>
@@ -53,7 +49,7 @@ const HomePage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f3f3f3", //değişecek en son
+    backgroundColor: "#fff",
   },
   navbar: {
     backgroundColor: "#fff",
@@ -82,6 +78,7 @@ const styles = StyleSheet.create({
   filter: {
     flexDirection: "row",
     justifyContent: "center",
+    marginBottom: 10,
   },
   footer: {
     position: "absolute",
@@ -97,4 +94,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomePage;
+export default HomeLayout;

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, Image } from "react-native";
 import axios from "axios";
+import { TouchableOpacity } from "react-native";
 
 //card yapısını düzenleme işlemi kaldı bi kaç fix düzeltilecek
 
-export default function Card() {
+const Card = () =>{
   const [coins, setCoins] = useState([]);
 
   useEffect(() => {
@@ -26,9 +27,11 @@ export default function Card() {
         flex: 1,
         flexDirection: "row",
         marginBottom: 10,
-        borderBottomWidth: 15,
-        borderBottomColor: "#eee",
+        borderRadius: 10,
+        height: 81,
         paddingHorizontal: 10,
+        backgroundColor: "#E7E7E7",
+        alignItems: "center",
       }}
     >
       <Image
@@ -41,7 +44,13 @@ export default function Card() {
           {item.symbol.toUpperCase()}
         </Text>
       </View>
-      <View style={{ justifyContent: "center" }}>
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "flex-end",
+          marginRight: 50,
+        }}
+      >
         <Text style={{ fontWeight: "bold", fontSize: 16 }}>
           ${item.current_price.toFixed(2)}
         </Text>
@@ -52,6 +61,35 @@ export default function Card() {
         >
           {item.price_change_percentage_24h.toFixed(2)}%
         </Text>
+      </View>
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          marginRight: 10,
+        }}
+      >
+        <TouchableOpacity
+          style={{
+            backgroundColor: "#28DE0A33",
+            width: 65,
+            alignItems: "center",
+            borderRadius: 10,
+            height: 28,
+            justifyContent: "center",
+          }}
+        >
+          <Text
+            style={{
+              fontWeight: "600",
+              color: "#1DBA04",
+              fontSize: 16,
+              lineHeight: 21,
+            }}
+          >
+            Buy
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -64,3 +102,5 @@ export default function Card() {
     />
   );
 }
+
+export default Card;

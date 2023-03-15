@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   purchases: [],
-  totalValue: 0,
 };
 
 const purchaseSlice = createSlice({
@@ -10,8 +9,19 @@ const purchaseSlice = createSlice({
   initialState,
   reducers: {
     addPurchase: (state, action) => {
-      state.purchases.push(action.payload);
-      state.totalValue += action.payload.value;
+      const index=state.purchases.findIndex(item => item.name===action.payload.name)
+      if( index !== -1 ){
+        state.purchases[index].amount+=1
+        state.purchases=state.purchases
+      }else{
+        action.payload.amount = 1 
+        state.purchases.push(action.payload)
+      }
+      //bu coin listede var mi
+      //listede varsa amount++
+      //listede yoksa amount=1 coini pushla
+      //state.purchases.push(action.payload);
+      // state.purchases=state.purchases; //tip
     },
   },
 });

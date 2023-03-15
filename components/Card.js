@@ -1,27 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, Image } from "react-native";
-import axios from "axios";
 import { TouchableOpacity } from "react-native";
+import { useDispatch } from "react-redux";
+import { addPurchase } from "../redux/purchaseSlice";
 
 //card yapısını düzenleme işlemi kaldı bi kaç fix düzeltilecek
-
-const Card = () => {
-  const [coins, setCoins] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=6&page=1&sparkline=false"
-      )
-      .then((response) => {
-        setCoins(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
-  const renderItem = ({ item }) => (
+const Card = ({ item,onClick }) => {
+  // const dispatch=useDispatch()
+  // const handleOnPress = () => {
+  //   console.log(item);
+  //   dispatch(addPurchase(item))
+  // };
+  return (
     <View
       style={{
         flex: 1,
@@ -78,7 +68,7 @@ const Card = () => {
             height: 28,
             justifyContent: "center",
           }}
-          // onPress={handleOnPress} //buy
+          onPress={()=>onClick(item)}
         >
           <Text
             style={{
@@ -94,15 +84,6 @@ const Card = () => {
       </View>
     </View>
   );
-
-  return (
-    <FlatList
-      data={coins}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-    />
-  );
 };
 
 export default Card;
-

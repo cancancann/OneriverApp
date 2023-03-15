@@ -1,18 +1,18 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
-const WalletCard = () => {
+const WalletCard = ({item}) => {
   return (
     <View style={styles.containerCard}>
-      <Image source={require("../assets/btc.png")} style={styles.image} />
+      <Image source={{uri : item.image }} style={styles.image} />
       {/* textHeader */}
       <View style={styles.textHeader}>
-        <Text style={styles.text}>BTC</Text>
+        <Text style={styles.text}>{item.name}</Text>
       </View>
       {/* Content */}
       <View style={styles.content}>
-        <Text style={styles.contentText}>50</Text>
-        <Text style={styles.contentTextPrice}>$ 1203.941</Text>
+        <Text style={styles.contentText}>{item.amount}</Text>
+        <Text style={styles.contentTextPrice}>$ {item.current_price * item.amount}</Text>
       </View>
     </View>
   );

@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import walletReducer from './WalletSlice'
+import purchaseSlice from "./purchaseSlice";
+
 
 export default configureStore({
   reducer: {
-    wallet: walletReducer,
+    purchase : purchaseSlice
   },
 });

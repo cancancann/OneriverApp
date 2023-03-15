@@ -1,15 +1,16 @@
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
-import Card from "../components/Card";
 import Filtering from "../components/Filtering";
 import HeaderText from "../components/HeaderText";
+import WalletCard from "../components/WalletCard";
 import HomeLayout from "../layouts/HomeLayout/HomeLayout";
 
 const Wallet = () => {
+  
   return (
     <HomeLayout>
       <HeaderText title="Wallet" />
       <Filtering />
+      <WalletCard />
     </HomeLayout>
   );
 };

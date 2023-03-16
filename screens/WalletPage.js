@@ -7,9 +7,8 @@ import WalletCard from "../components/WalletCard";
 import HomeLayout from "../layouts/HomeLayout/HomeLayout";
 
 const Wallet = () => {
-  const value=useSelector((state)=>state.purchase.totalValue)
   const purchases=useSelector((state)=>state.purchase.purchases)
-    console.log(purchases)
+  
   return (
     <HomeLayout>
       <HeaderText title="Wallet" />

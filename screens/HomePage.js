@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, StyleSheet} from "react-native";
+import { FlatList, ScrollView } from "react-native";
 import Card from "../components/Card";
 import axios from "axios";
 import Filtering from "../components/Filtering";
@@ -12,11 +12,11 @@ import { addPurchase } from "../redux/purchaseSlice";
 //Şuan yaptığın layout
 
 const HomePage = () => {
-  const [coins,setCoins] = useState();
-  const dispatch=useDispatch()
-  const handleClick=(item)=>{
-    dispatch(addPurchase(item))
-  }
+  const [coins, setCoins] = useState();
+  const dispatch = useDispatch();
+  const handleClick = (item) => {
+    dispatch(addPurchase(item));
+  };
   useEffect(() => {
     axios
       .get(
@@ -36,13 +36,11 @@ const HomePage = () => {
       <Filtering />
       <FlatList
         data={coins}
-        renderItem={({item})=><Card item={item} onClick={handleClick}/>}
+        renderItem={({ item }) => <Card item={item} onClick={handleClick} />}
         keyExtractor={(item) => item.id}
       />
     </HomeLayout>
   );
 };
-
-
 
 export default HomePage;

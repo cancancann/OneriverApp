@@ -17,11 +17,6 @@ const purchaseSlice = createSlice({
         action.payload.amount = 1 
         state.purchases.push(action.payload)
       }
-      //bu coin listede var mi
-      //listede varsa amount++
-      //listede yoksa amount=1 coini pushla
-      //state.purchases.push(action.payload);
-      // state.purchases=state.purchases; //tip
     },
   },
 });

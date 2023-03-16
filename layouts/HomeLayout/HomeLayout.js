@@ -1,6 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Button from "../../components/Button";
+import { Image, StyleSheet,TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 const HomeLayout = ({ children }) => {
   const navigation = useNavigation();

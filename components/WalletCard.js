@@ -12,7 +12,7 @@ const WalletCard = ({item}) => {
       {/* Content */}
       <View style={styles.content}>
         <Text style={styles.contentText}>{item.amount}</Text>
-        <Text style={styles.contentTextPrice}>$ {item.current_price * item.amount}</Text>
+        <Text style={styles.contentTextPrice}>$ {item.current_price.toFixed(2) * item.amount}</Text>
       </View>
     </View>
   );

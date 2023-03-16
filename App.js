@@ -21,7 +21,7 @@ export default function App() {
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Login">
+          <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown:false}} >
             <Stack.Screen name="Home" component={HomePage}></Stack.Screen>
             <Stack.Screen name="Wallet" component={WalletPage}></Stack.Screen>
             <Stack.Screen name="Login" component={LoginPage}></Stack.Screen>
